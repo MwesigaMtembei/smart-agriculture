@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Real-time Price Trends</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <!-- DataTables CSS -->
+  <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .badge-up {
+      background-color: #28a745;
+    }
+    .badge-down {
+      background-color: #dc3545;
+    }
+    .badge-same {
+      background-color: #6c757d;
+    }
+    .section-header {
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    .badge-big-up {
+  background: linear-gradient(90deg, #28a745, #85e085);
+  color: white;
+}
+.badge-big-down {
+  background: linear-gradient(90deg, #dc3545, #ff9999);
+  color: white;
+}
+  </style>
+
+</head>
+<body>
+
+<div class="container py-5">
+
+  <div class="text-center mb-5">
+    <h1 class="text-success">
+      <i class="fas fa-chart-line"></i> Real-time Price Trends
+    </h1>
+    <p class="text-muted">Updated with official Ministry of Agriculture data(16-20th JUNE 2025)</p>
+  </div>
+
+  <!-- National Average Wholesale Prices -->
+  <div class="section-header">
+    <h3 class="text-primary"><i class="fas fa-globe"></i> National Average Wholesale Prices</h3>
+  </div>
+  <div class="table-responsive">
+    <table id="nationalPrices" class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Crop</th>
+          <th>Price This Week (TZS/Kg)</th>
+          <th>Price Last Week (TZS/Kg)</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- EXAMPLE: Real data will be inserted -->
+        <tr>
+            <td>Mahindi</td>
+            <td>800</td>
+            <td>800</td>
+            <td><span class="badge badge-same">0.0% ►</span></td>
+          </tr>
+          <tr>
+            <td>Mchele</td>
+            <td>2400</td>
+            <td>2300</td>
+            <td><span class="badge badge-up"> 4.3% ▲</span></td>
+          </tr>
+          <tr>
+            <td>Maharage</td>
+            <td>2600</td>
+            <td>2700</td>
+            <td><span class="badge badge-same"> 3.7% ▼</span></td>
+          </tr>
+          <tr>
+            <td>Mtama</td>
+            <td>1500</td>
+            <td>1500</td>
+            <td><span class="badge badge-same">0.0% ►</span></td>
+          </tr>
+          <tr>
+            <td>Uwele</td>
+            <td>1600</td>
+            <td>1500</td>
+            <td><span class="badge badge-up">6.7% ▲</span></td>
+          </tr>
+          <tr>
+            <td>Ulezi</td>
+            <td>2500</td>
+            <td>2400</td>
+            <td><span class="badge badge-up">4.2% ▲</span></td>
+          </tr>
+          <tr>
+            <td>Viazi Mviringo</td>
+            <td>900</td>
+            <td>900</td>
+            <td><span class="badge badge-same">0.0% ►</span></td>
+          </tr>
+          
+        <!-- Add more crops -->
+      </tbody>
+    </table>
+  </div>
+
+<!-- Regional Wholesale Prices Section with Region Filter -->
+<div class="section-header d-flex justify-content-between align-items-center">
+    <h3 class="text-info"><i class="fas fa-map-marked-alt"></i> Regional Wholesale Prices</h3>
+    <div>
+      <label for="regionFilter" class="form-label">Filter by Region:</label>
+      <select id="regionFilter" class="form-select">
+        <option value="">Show All Regions</option>
+        <option value="Dodoma">Dodoma</option>
+        <option value="Arusha">Arusha</option>
+        <option value="Dar es Salaam">Dar es Salaam</option>
+        <option value="Lindi">Lindi</option>
+        <option value="Morogoro">Morogoro</option>
+        <option value="Mtwara">Mtwara</option>
+        <option value="Iringa">Iringa</option>
+        <option value="Ruvuma">Ruvuma</option>
+        <option value="Tabora">Tabora</option>
+        <option value="Rukwa">Rukwa</option>
+        <option value="Kigoma">Kigoma</option>
+        <option value="Shinyanga">Shinyanga</option>
+        <option value="Mwanza">Mwanza</option>
+        <option value="Ruvuma">Kagera</option>
+        <option value="Tabora">Mara</option>
+        <option value="Rukwa">Njombe</option>
+        <option value="Kigoma">Katavi</option>
+        <option value="Kigoma">Tanga</option>
+        <option value="Shinyanga">Singida</option>
+        <option value="Mwanza">Geita</option>
+        <option value="Ruvuma">Songwe</option>
+        <option value="Tabora">Simiyu</option>
+        <option value="Rukwa">Pwani</option>
+        <!-- Add more if needed -->
+      </select>
+    </div>
+  </div>
+  
+  <!-- Only one heading (already included above) -->
+  <div class="table-responsive">
+    <table id="regionalPrices" class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Region</th>
+          <th>Crop</th>
+          <th>Price This Week (TZS/Kg)</th>
+          <th>Price Last Week (TZS/Kg)</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Regional Prices Data Here -->
+        <tr>
+          <td>Dodoma</td><td>Mahindi</td><td>800</td><td>800</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Dodoma</td><td>Mchele</td><td>2700</td><td>2700</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Dodoma</td><td>Maharage</td><td>2800</td><td>2900</td><td><span class="badge badge-same">3.4% ▼</span></td>
+        </tr>
+        <tr>
+          <td>Dodoma</td><td>Mtama</td><td>600</td><td>600</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Dodoma</td><td>Uwele</td><td>900</td><td>1000</td><td><span class="badge badge-same">10% ▼</span></td>
+        </tr>
+        <tr>
+          <td>Dodoma</td><td>Ulezi</td><td>2100</td><td>1900</td><td><span class="badge badge-same">10.5% ▲</span></td>
+        </tr>
+        <tr>
+          <td>Dodoma</td><td>Viazi Mviringo</td><td>900</td><td>1000</td><td><span class="badge badge-same"> 10% ▼</span></td>
+        </tr>
+        <tr>
+          <td>Arusha</td><td>Mahindi</td><td>800</td><td>800</td><td><span class="badge badge-big-down"> 0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Arusha</td><td>Mchele</td><td>2900</td><td>2800</td><td><span class="badge badge-big-down">3.6% ▲</span></td>
+        </tr>
+        <tr>
+          <td>Arusha</td><td>Maharage</td><td>2400</td><td>2600</td><td><span class="badge badge-big-down">7.7% ▼</span></td>
+        </tr>
+        <tr>
+          <td>Arusha</td><td>Mtama/td><td>1300</td><td>1300</td><td><span class="badge badge-big-down">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Arusha</td><td>Uwele</td><td>900</td><td></td><td><span class="badge badge-big-down"> </span></td>
+        </tr>
+        <tr>
+          <td>Arusha</td><td>Ulezi</td><td>2200</td><td>2200</td><td><span class="badge badge-big-down"> 0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Arusha</td><td>Viazi Mviringo</td><td>800</td><td>900</td><td><span class="badge badge-big-down">-11.1% ▼</span></td>
+        </tr>
+        <tr>
+          <td>Dar es Salaam</td><td>Mahindi</td><td>1000</td><td>1100</td><td><span class="badge badge-big-up">9.1% ▼</span></td>
+        </tr>
+        <tr>
+            <td>Dar es Salaam</td><td>Mchele</td><td>2600</td><td>2500</td><td><span class="badge badge-up">4.0% ▲</span></td>
+          </tr>
+          <tr>
+            <td>Dar es Salaam</td><td>Maharage</td><td>3500</td><td>3300</td><td><span class="badge badge-big-up">6.11% ▲</span></td>
+          </tr>
+          <tr>
+            <td>Dar es Salaam</td><td>Mtama</td><td>1400</td><td>1300</td><td><span class="badge badge-big-up">7.7% ▲</span></td>
+          </tr>
+          <tr>
+            <td>Dar es Salaam</td><td>Uwele</td><td>1000</td><td>1000</td><td><span class="badge badge-big-up">0.0% ►</span></td>
+          </tr>
+          <tr>
+            <td>Dar es Salaam</td><td>Ulezi</td><td>3200</td><td>3200</td><td><span class="badge badge-big-up">0.0% ►</span></td>
+          </tr>
+          <tr>
+            <td>Dar es Salaam</td><td>Viazi Mviringo</td><td>1000</td><td>1000</td><td><span class="badge badge-big-up">0.0% ►</span></td>
+          </tr>
+
+        <tr>
+          <td>Lindi</td><td>Mahindi</td><td>1000</td><td>1000</td><td><span class="badge badge-down">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Lindi</td><td>Mchele</td><td>2500</td><td>2400</td><td><span class="badge badge-down">4.2% ▲</span></td>
+        </tr>
+        <tr>
+          <td>Lindi</td><td>Maharage</td><td>2800</td><td>2900</td><td><span class="badge badge-down">3.4% ▼🔥</span></td>
+        </tr>
+        <tr>
+          <td>Lindi</td><td>Mtama</td><td>2000</td><td>1800</td><td><span class="badge badge-down">11.1% ▲</span></td>
+        </tr>
+        <tr>
+          <td>Lindi</td><td>Uwele</td><td>3000</td><td></td><td><span class="badge badge-down"></span></td>
+        </tr>
+        <tr>
+          <td>Lindi</td><td>Ulezi</td><td>2600</td><td>2800</td><td><span class="badge badge-down">7.1% ▼</span></td>
+        </tr>
+        <tr>
+          <td>Lindi</td><td>Viazi Mviringo</td><td>900</td><td>800</td><td><span class="badge badge-down">12.5% ▲</span></td>
+        </tr>
+        <tr>
+          <td>Morogoro</td><td>Mahindi</td><td>900</td><td>900</td><td><span class="badge badge-big-up">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Morogoro</td><td>Mchele</td><td>2200</td><td>2200</td><td><span class="badge badge-big-up">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Morogoro</td><td>Maharage</td><td>2900</td><td>2900</td><td><span class="badge badge-big-up">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Morogoro</td><td>Mtama</td><td>1300</td><td>1300</td><td><span class="badge badge-big-up">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Morogoro</td><td>Uwele</td><td></td><td>1300</td><td><span class="badge badge-big-up"></span></td>
+        </tr>
+        <tr>
+          <td>Morogoro</td><td>Ulezi</td><td></td><td></td><td><span class="badge badge-big-up"></span></td>
+        </tr>
+        <tr>
+          <td>Morogoro</td><td>Viazi Mviringo</td><td>600</td><td>700</td><td><span class="badge badge-big-up">14.3% ▼</span></td>
+        </tr>
+        <tr>
+          <td>Tanga</td><td>Mahindi</td><td>1000</td><td></td><td><span class="badge badge-down"></span></td>
+        </tr>
+        <tr>
+          <td>Tanga</td><td> Mchele</td><td>2800</td><td></td><td><span class="badge badge-down"></span></td>
+        </tr>
+        <tr>
+          <td>Tanga</td><td>Maharage</td><td>2700</td><td></td><td><span class="badge badge-down"></span></td>
+        </tr>
+        <tr>
+          <td>Tanga</td><td>Mtama</td><td>1500</td><td></td><td><span class="badge badge-down"></span></td>
+        </tr>
+        <tr>
+          <td>Tanga</td><td>Uwele</td><td>900</td><td>800</td><td><span class="badge badge-down"></span></td>
+        </tr>
+        <tr>
+          <td>Tanga</td><td>Ulezi</td><td>3200</td><td></td><td><span class="badge badge-down"></span></td>
+        </tr>
+        <tr>
+          <td>Tanga</td><td>Viazi Mviringo</td><td>1200</td><td></td><td><span class="badge badge-down"></span></td>
+        </tr>
+        <tr>
+          <td>Mtwara</td><td>Mahindi</td><td></td><td>800</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Mtwara</td><td>Mchele</td><td></td><td>2700</td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Mtwara</td><td>Maharage</td><td></td><td>2900</td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Mtwara</td><td>Mtama</td><td></td><td>2000</td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Mtwara</td><td>Uwele</td><td></td><td>-</td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Mtwara</td><td>Ulezi</td><td></td><td>-</td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Mtwara</td><td>Viazi Mviringo</td><td>-</td><td>900</td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Iringa</td><td>Mahindi</td><td>700</td><td>700</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Iringa</td><td>Mchele</td><td>2300</td><td>2200</td><td><span class="badge badge-same">4.5% ▲</span></td>
+        </tr>
+        <tr>
+          <td>Iringa</td><td>Maharage</td><td>2800</td><td>2700</td><td><span class="badge badge-same">3.7% ▲</span></td>
+        </tr>
+        <tr>
+          <td>Iringa</td><td>Mtama</td><td>1500</td><td>1400</td><td><span class="badge badge-same">7.1% ▲</span></td>
+        </tr>
+        <tr>
+          <td>Iringa</td><td>Uwele</td><td>1400</td><td>1300</td><td><span class="badge badge-same">7.7% ▲</span></td>
+        </tr>
+        <tr>
+          <td>Iringa</td><td>Ulezi</td><td>3300</td><td>3300</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Iringa</td><td>Viazi Mviringo</td><td>600</td><td>600</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Ruvuma</td><td>Mahindi</td><td>700</td><td>700</td><td><span class="badge badge-big-up">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Ruvuma</td><td>Mchele</td><td>2300</td><td>2200</td><td><span class="badge badge-big-up">4.4% ▲</span></td>
+        </tr>
+        <tr>
+          <td>Ruvuma</td><td>Maharage</td><td>2500</td><td>2400</td><td><span class="badge badge-big-up">4.2% ▲</span></td>
+        </tr>
+        <tr>
+          <td>Ruvuma</td><td>Mtama</td><td>-</td><td>-</td><td><span class="badge badge-big-up"></span></td>
+        </tr>
+        <tr>
+          <td>Ruvuma</td><td>Uwele</td><td>-</td><td>-</td><td><span class="badge badge-big-up"></span></td>
+        </tr>
+        <tr>
+          <td>Ruvuma</td><td>Ulezi</td><td>-</td><td>-</td><td><span class="badge badge-big-up">-</span></td>
+        </tr>
+        <tr>
+          <td>Ruvuma</td><td>Viazi Mviringo</td><td>700</td><td>700</td><td><span class="badge badge-big-up">-</span></td>
+        </tr>
+        <tr>
+          <td>Tabora</td><td>Mahindi</td><td></td><td>700</td><td><span class="badge badge-same"></span>-</td>
+        </tr>
+        <tr>
+          <td>Tabora</td><td>Mchele</td><td>800</td><td>2000</td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Tabora</td><td>Maharage</td><td>800</td><td>2700</td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Tabora</td><td>Mtama</td><td>-</td><td>1800</td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Tabora</td><td>Uwele</td>-<td></td><td>-</td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Tabora</td><td>Ulezi</td><td>-</td><td>1900</td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Tabora</td><td>Viazi Mviringo</td><td>-</td><td>900</td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Rukwa</td><td>Mahindi</td><td>600</td><td>600</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Rukwa</td><td>Mchele</td><td>2200</td><td>2200</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Rukwa</td><td>Maharage</td><td>2400</td><td>2400</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Rukwa</td><td>Mtama</td><td></td><td></td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Rukwa</td><td>Uwele</td><td></td><td></td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Rukwa</td><td>Ulezi</td><td>1300</td><td>1300</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Rukwa</td><td>Viazi Mviringo</td><td>900</td><td>800</td><td><span class="badge badge-same">12.5% ▲</span></td>
+        </tr>
+        <tr>
+          <td>Kigoma</td><td>Mahindi</td><td></td><td>700</td><td><span class="badge badge-big-down">-</span></td>
+        </tr>
+        <tr>
+          <td>Kigoma</td><td>Mchele</td><td></td><td>2100</td><td><span class="badge badge-big-down">-</span></td>
+        </tr>
+        <tr>
+          <td>Kigoma</td><td>Maharage</td><td></td><td>2300</td><td><span class="badge badge-big-down">-</span></td>
+        </tr>
+        <tr>
+          <td>Kigoma</td><td>Mtama</td><td></td><td>1800</td><td><span class="badge badge-big-down">-</span></td>
+        </tr>
+        <tr>
+          <td>Kigoma</td><td>Uwele</td><td></td><td>1700</td><td><span class="badge badge-big-down"></span></td>
+        </tr>
+        <tr>
+          <td>Kigoma</td><td>Ulezi</td><td></td><td>1300</td><td><span class="badge badge-big-down"></span></td>
+        </tr>
+        <tr>
+          <td>Kigoma</td><td>Viazi Mviringo</td><td></td><td>1100</td><td><span class="badge badge-big-down"></span></td>
+        </tr>
+        <tr>
+          <td>Shinyanga</td><td>Mahindi</td><td>800</td><td>800</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Shinyanga</td><td>Mchele</td><td>2000</td><td>2000</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Shinyanga</td><td>Maharage</td><td>2600</td><td>2600</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Shinyanga</td><td>Mtama</td><td>1600</td><td>1600</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Shinyanga</td><td>Uwele</td><td>1000</td><td>1300</td><td><span class="badge badge-same">23.1% ▼</span></td>
+        </tr>
+        <tr>
+          <td>Shinyanga</td><td>Ulezi</td><td>3000</td><td>2900</td><td><span class="badge badge-same">3.4% ▲</span></td>
+        </tr>
+        <tr>
+          <td>Shinyanga</td><td>Viazi Mviringo</td><td>900</td><td>900</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Mwanza</td><td>Mahindi</td><td>900</td><td>1000</td><td><span class="badge badge-same">10.0% ▼</span></td>
+        </tr>
+        <tr>
+          <td>Mwanza</td><td>Mchele</td><td>2200</td><td>2500</td><td><span class="badge badge-same">12.0% ▼</span></td>
+        </tr>
+        <tr>
+          <td>Mwanza</td><td>Maharage</td><td>2500</td><td>2700</td><td><span class="badge badge-same">7.4% ▼</span></td>
+        </tr>
+        <tr>
+          <td>Mwanza</td><td>Mtama</td><td>1500</td><td>1500</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Mwanza</td><td>Uwele</td><td>1300</td><td>1400</td><td><span class="badge badge-same">7.1% ▼</span></td>
+        </tr>
+        <tr>
+          <td>Mwanza</td><td>Ulezi</td><td>2600</td><td>2600</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Mwanza</td><td>Viazi Mviringo</td><td>900</td><td>1000</td><td><span class="badge badge-same">10.0% ▼</span></td>
+        </tr>
+        <tr>
+          <td>Kagera</td><td>Mahindi</td><td>1000</td><td>1000</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Kagera</td><td>Mchele</td><td>2300</td><td>2200</td><td><span class="badge badge-same">4.5% ▲</span></td>
+        </tr>
+        <tr>
+          <td>Kagera</td><td>Maharage</td><td>2300</td><td>2300</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Kagera</td><td>Mtama</td><td>1600</td><td>1600</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Kagera</td><td>Uwele</td><td>1700</td><td>1600</td><td><span class="badge badge-same">6.3% ►</span></td>
+        </tr>
+        <tr>
+          <td>Kagera</td><td>Ulezi</td><td>2800</td><td>2800</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Kagera</td><td>Viazi Mviringo</td><td>900</td><td>900</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Mara</td><td>Mahindi</td><td>900</td><td>800</td><td><span class="badge badge-same">12.5% ►</span></td>
+        </tr>
+        <tr>
+          <td>Mara</td><td>Mchele</td><td>1900</td><td>2000</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Mara</td><td>Maharage</td><td>2200</td><td>2200</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Mara</td><td>Mtama</td><td>1700</td><td>1700</td><td><span class="badge badge-same">6.7% ►</span></td>
+        </tr>
+        <tr>
+          <td>Mara</td><td>Uwele</td><td>1400</td><td>1500</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Mara</td><td>Ulezi</td><td>2700</td><td>2700</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Mara</td><td>Viazi Mviringo</td><td>1300</td><td>1300</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Njombe</td><td>Mahindi</td><td>600</td><td>600</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Njombe</td><td>Mchele</td><td>2200</td><td>2300</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Njombe</td><td>Maharage/td><td>2200</td><td>2200</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Njombe</td><td>Mtama</td><td>1000</td><td>900</td><td><span class="badge badge-same">11.1% ►</span></td>
+        </tr>
+        <tr>
+          <td>Njombe</td><td>Uwele</td><td></td><td></td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Njombe</td><td>Ulezi</td><td>2700</td><td>2800</td><td><span class="badge badge-same">3.6% ►</span></td>
+        </tr>
+        <tr>
+          <td>Njombe</td><td>Viazi Mviringo</td><td>450</td><td>500</td><td><span class="badge badge-same">10.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Kilimanjaro</td><td>Mahindi</td><td></td><td>900</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Kilimanjaro</td><td>Mchele</td><td></td><td>2300</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Kilimanjaro</td><td>Maharage</td><td></td><td>2800</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Kilimanjaro</td><td>Mtama</td><td></td><td></td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Kilimanjaro</td><td>Uwele</td><td></td><td></td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Kilimanjaro</td><td>Ulezi</td><td></td><td></td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Kilimanjaro</td><td>Viazi Mviringo</td><td></td><td>900</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Katavi</td><td>Mahindi</td><td></td><td>600</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Katavi</td><td>Mchele</td><td></td><td>2000</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Katavi</td><td>Maharage</td><td></td><td>2900</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Katavi</td><td>Mtama</td><td></td><td>2100</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Katavi</td><td>Uwele</td><td></td><td></td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Katavi</td><td>Ulezi</td><td></td><td>1600</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Katavi</td><td>Viazi Mviringo</td><td></td><td>900</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Singida</td><td>Mahindi</td><td>700</td><td>700</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Singida</td><td>Mchele</td><td>2500</td><td>2500</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Singida</td><td>Maharage</td><td>2700</td><td>2800</td><td><span class="badge badge-same">3.6% ►</span></td>
+        </tr>
+        <tr>
+          <td>Singida</td><td>Mtama</td><td>1200</td><td>1200</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Singida</td><td>Uwele</td><td>1400</td><td>1400</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Singida</td><td>Ulezi</td><td>1700</td><td>1500</td><td><span class="badge badge-same">13.3% ►</span></td>
+        </tr>
+        <tr>
+          <td>Singida</td><td>Viazi Mviringo</td><td>1100</td><td>1100</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Geita</td><td>Mahindi</td><td>800</td><td>800</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Geita</td><td>Mchele</td><td>2000</td><td>2200</td><td><span class="badge badge-same">9.1% ►</span></td>
+        </tr>
+        <tr>
+          <td>Geita</td><td>Maharage</td><td>2800</td><td>2800</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Geita</td><td>Mtama</td><td>1500</td><td>1500</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Geita</td><td>Uwele</td><td>1900</td><td>1900</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Geita</td><td>Ulezi</td><td>1700</td><td>1800</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Geita</td><td>Viazi Mviringo</td><td>1000</td><td>1000</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Songwe</td><td>Mahindi</td><td>500</td><td>600</td><td><span class="badge badge-same">116.7% ►</span></td>
+        </tr>
+        <tr>
+          <td>Songwe</td><td>Mchele</td><td>2500</td><td>2500</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Songwe</td><td>Maharage</td><td>2000</td><td>2300</td><td><span class="badge badge-same">13.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Songwe</td><td>Mtama</td><td></td><td></td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Songwe</td><td>Uwele</td><td></td><td></td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Songwe</td><td>Ulezi</td><td></td><td></td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Songwe</td><td>Viazi Mviringo</td><td></td><td></td><td><span class="badge badge-same"></span></td>
+        </tr>
+        <tr>
+          <td>Simiyu</td><td>Mahindi</td><td>800</td><td>800</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Simiyu</td><td>Mchele/td><td>2000</td><td>2000</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Simiyu</td><td>Maharage/td><td>2900</td><td>2900</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Simiyu</td><td>Mtama</td><td>1900</td><td>1900</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Simiyu</td><td>Uwele</td><td>1900</td><td>1900</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Simiyu</td><td>Ulezi</td><td>2200</td><td>2500</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Simiyu</td><td>Viazi Mviringo</td><td>1500</td><td>1500</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Pwani</td><td>Mahindi</td><td>1500</td><td>1500</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Pwani</td><td>Mchele</td><td>2600</td><td>2400</td><td><span class="badge badge-same">8.3% ►</span></td>
+        </tr>
+        <tr>
+          <td>Pwani</td><td>Maharage</td><td>3100</td><td>3100</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Pwani</td><td>  Mtama</td><td>1600</td><td>1600</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Pwani</td><td>Uwele</td><td>1600</td><td>1600</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Pwani</td><td>Ulezi</td><td>3400</td><td>3400</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Pwani</td><td>Viazi Mviringo</td><td>1300</td><td>1300</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+  <!-- Retail Horticultural Prices -->
+  <div class="section-header">
+    <h3 class="text-warning"><i class="fas fa-seedling"></i> Average Retail Horticultural Crop Prices By Some Regions</h3>
+  </div>
+  <div class="table-responsive">
+    <table id="retailPrices" class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Region</th>
+          <th>Crop</th>
+          <th>Price This Week (TZS/Kg)</th>
+          <th>Price Last Week (TZS/Kg)</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Retail crop data here -->
+        <tr>
+          <td>Dar es salaam</td><td>Vitunguu</td><td>1800</td><td>1800</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr>
+        <tr>
+          <td>Dar es salaam</td><td>Vitunguu Swaumu</td><td>4000</td><td>6000</td><td><span class="badge badge-same">-33% ►</span></td>
+        </tr>
+        <tr>
+          <td>Dar es salaam</td><td>Nyanya</td><td>2000</td><td>1700</td><td><span class="badge badge-same">18% ►</span></td>
+        </tr>
+        <tr>
+          <td>Dar es salaam</td><td>Viazi Mviringo</td><td>700</td><td>1000</td><td><span class="badge badge-same">-30% ►</span></td>
+        </tr>
+        <tr>
+          <td>Dar es salaam</td><td>Pesheni</td><td>1400</td><td>1500</td><td><span class="badge badge-same">-7% ►</span></td>
+        </tr>
+        <tr>
+          <td>Dar es salaam</td><td>Parachichi</td><td>1000</td><td>900</td><td><span class="badge badge-same">11% ►</span></td>
+        </tr>
+        <tr>
+          <td>Dar es salaam</td><td>Tikiti Maji</td><td>800</td><td>800</td><td><span class="badge badge-same">0.0% ►</span></td>
+        </tr> 
+
+        <tr>
+          <td>Arusha</td><td>Vitunguu</td><td>2200</td><td>2000</td><td><span class="badge badge-same">10% ►</span></td>
+        </tr>
+        <tr>
+          <td>Arusha</td><td>Vitunguu Swaumu</td><td>11000</td><td>10000</td><td><span class="badge badge-same">10% ►</span></td>
+        </tr>
+        <tr>
+          <td>Arusha</td><td>Nyanya</td><td>1100</td><td>1300</td><td><span class="badge badge-same">-15% ►</span></td>
+        </tr>
+        <tr>
+          <td>Arusha</td><td>Viazi Mviringo</td><td>800</td><td>1000</td><td><span class="badge badge-same">-20% ►</span></td>
+        </tr>
+        <tr>
+          <td>Arusha</td><td>Pesheni</td><td>2000</td><td>2000</td><td><span class="badge badge-same">-7% ►</span></td>
+        </tr>
+        <tr>
+          <td>Arusha/td><td>Parachichi</td><td>550</td><td>550</td><td><span class="badge badge-same">11% ►</span></td>
+        </tr>
+        <tr>
+          <td>Arusha</td><td>Tikiti Maji</td><td>550</td><td>600</td><td><span class="badge badge-same">-8% ►</span></td>
+        </tr> 
+        <tr>
+        <td>Dodoma,Sabasaba</td><td>Vitunguu</td><td>2200</td><td>2000</td><td><span class="badge badge-same">10% ►</span></td>
+      </tr>
+      <tr>
+        <td>Dodoma</td><td>Vitunguu Swaumu</td><td>10000</td><td>10000</td><td><span class="badge badge-same">0% ►</span></td>
+      </tr>
+      <tr>
+        <td>Dodoma</td><td>Nyanya</td><td>1300</td><td>1300</td><td><span class="badge badge-same">0% ►</span></td>
+      </tr>
+      <tr>
+        <td>Dodoma</td><td>Viazi Mviringo</td><td>1000</td><td>1200</td><td><span class="badge badge-same">-17% ►</span></td>
+      </tr>
+      <tr>
+        <td>Dodoma</td><td>Pesheni</td><td>3500</td><td>3500</td><td><span class="badge badge-same">0% ►</span></td>
+      </tr>
+      <tr>
+        <td>Dodoma</td><td>Parachichi</td><td>1000</td><td>900</td><td><span class="badge badge-same">11% ►</span></td>
+      </tr>
+      <tr>
+        <td>Dodoma</td><td>Tikiti Maji</td><td>700</td><td>2000</td><td><span class="badge badge-same">0% ►</span></td>
+      </tr> 
+      <tr>
+        <td>Manyara,Babati</td><td>Vitunguu</td><td>2000</td><td>1500</td><td><span class="badge badge-same">-8% ►</span></td>
+      </tr> 
+      <tr>
+        <td>Manyara,Babati</td><td>Vitunguu Swaumu</td><td>10000</td><td>10000</td><td><span class="badge badge-same">-8% ►</span></td>
+      </tr> 
+      <tr>
+        <td>Manyara,Babati</td><td> Nyanya</td><td>1000</td><td>1000</td><td><span class="badge badge-same">-8% ►</span></td>
+      </tr> 
+      <tr>
+        <td>Manyara,Babati</td><td>Viazi Mviringo</td><td>1000</td><td>1200</td><td><span class="badge badge-same">-8% ►</span></td>
+      </tr> 
+      <tr>
+        <td>Manyara,Babati</td><td>Pesheni</td><td>1500</td><td>1501</td><td><span class="badge badge-same">-8% ►</span></td>
+      </tr> 
+      <tr>
+        <td>Manyara,Babati</td><td>Parachichi</td><td>400</td><td>500</td><td><span class="badge badge-same">-20% ►</span></td>
+      </tr> 
+      <tr>
+        <td>Manyara,Babati</td><td>Tikiti Maji</td><td>800</td><td>700</td><td><span class="badge badge-same">14% ►</span></td>
+      </tr> 
+          
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="text-center mt-5">
+    <a href="/dashboard" class="btn btn-success btn-lg">
+      <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+  </div>
+  
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JQuery and DataTables JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    var regionalTable = $('#regionalPrices').DataTable();
+
+    $('#regionFilter').on('change', function() {
+        var selectedRegion = $(this).val();
+        if (selectedRegion) {
+            regionalTable.column(0).search('^' + selectedRegion + '$', true, false).draw();
+        } else {
+            regionalTable.column(0).search('').draw();
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>

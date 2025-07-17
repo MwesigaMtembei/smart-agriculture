@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Dashboard - Smart Agriculture</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <style>
+    .profile-box img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%; /* Ensures it's always a circle */
+      border: 2px solid #198754; /* Optional: green border */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    }
+  </style>
+  
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Marcellus&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+</head>
+
+<body class="dashboard-page">
+
+  <header id="header" class="header d-flex align-items-center position-relative shadow-sm">
+    <div class="container-fluid container-xl d-flex justify-content-between align-items-center">
+      <a href="{{ url_for('index') }}" class="logo d-flex align-items-center">
+        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="SmartAgri">
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{ url_for('dashboard') }}" class="active">Dashboard</a></li>
+          <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="dashboard-container">
+
+    <!-- Sidebar -->
+    <div class="sidebar shadow-sm">
+      <div class="card text-center border-0 mb-3">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='assets/img/user.png') }}" alt="Profile">
+          <h5 class="text-success mt-2 mb-0">{{ username|capitalize }}</h5>
+          <small class="text-muted">Smart Farmer</small>
+        </div>
+      </div>
+      <div class="list-group">
+        <a href="{{ url_for('dashboard') }}" class="list-group-item list-group-item-action active">
+          <i class="bi bi-speedometer2 me-2"></i> Dashboard
+        </a>
+        <a href="{{ url_for('subscribe_page') }}" class="list-group-item list-group-item-action">
+          <i class="bi bi-graph-up-arrow me-2"></i> Market Trends
+        </a>
+        <a href="{{ url_for('price_trends') }}" class="list-group-item list-group-item-action">
+          <i class="bi bi-cash-coin me-2"></i> Price Trends
+        </a>
+        <a href="{{ url_for('subscribe') }}" class="list-group-item list-group-item-action">
+          <i class="bi bi-lightbulb me-2"></i> Crop Suggestions
+        </a>
+        <a href="{{ url_for('predict') }}" class="list-group-item list-group-item-action">
+          <i class="bi bi-bar-chart-line me-2"></i> Analytics
+        </a>
+        <a href="{{ url_for('logout') }}" class="list-group-item list-group-item-action text-danger">
+          <i class="bi bi-box-arrow-right me-2"></i> Logout
+        </a>
+      </div>
+    </div>
+  
+    <!-- Main Dashboard Cards -->
+    <div class="main-content">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Welcome, <span class="text-success">{{ username|capitalize }}</span> 🌱</h2>
+        <p class="text-muted">Make smarter agricultural decisions with AI insights.</p>
+      </div>
+  
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card shadow p-4 h-100">
+            <h4 class="mb-3 text-success"><i class="bi bi-graph-up-arrow me-2"></i>Market Trends</h4>
+            <p>AI insights on crop demand changes and price projections.</p>
+            <!-- Explore Trends Button -->
+{% if session['subscription_active'] %}
+<a href="{{ url_for('explore_trends') }}" class="btn btn-primary">Explore Trends</a>
+{% else %}
+<a href="{{ url_for('subscribe_page') }}" class="btn btn-warning">Subscribe to Access Trends</a>
+{% endif %}
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow p-4 h-100">
+            <h4 class="mb-3 text-primary"><i class="bi bi-cash-coin me-2"></i>Real-time Price Trends</h4>
+            <p>Check live crop prices by region across Tanzania.</p>
+            <a href="{{ url_for('price_trends') }}" class="btn btn-sm btn-outline-primary">View Prices</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow p-4 h-100">
+            <h4 class="mb-3 text-info"><i class="bi bi-lightbulb me-2"></i>Smart Crop Suggestions</h4>
+            <p>AI recommends crops for your soil and region.</p>
+            <!-- Get Suggestions Button -->
+            
+  <a href="{{ url_for('subscribe') }}" class="btn btn-warning">Subscribe to Access Suggestions</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow p-4 h-100">
+            <h4 class="mb-3 text-warning"><i class="bi bi-bar-chart-line me-2"></i>Predictive Analytics</h4>
+            <p>Plan when to plant, harvest, and sell with AI help.</p>
+            <a href="{{ url_for('predict') }}" class="btn btn-sm btn-outline-warning">Start Forecasting</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </main>
+  
+  
+
+  <footer id="footer" class="footer dark-background mt-5">
+    <div class="container d-flex justify-content-between align-items-center py-4">
+      <div>
+        © Copyright <strong><span>Smart Agriculture</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+
+  <!-- Main JS File -->
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
+</html>

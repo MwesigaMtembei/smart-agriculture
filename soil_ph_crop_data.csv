@@ -1,0 +1,90 @@
+region,district,ph_min,ph_max,acidity_level,recommended_crop
+Arusha,"Ngorongoro, Longido, Karatu",0.0,5.4,Highly Acidic,"Mahindi, Maharage, Mtama, Uwele, Ngano, Shayiri, Chai, Parachichi"
+Arusha,"Ngorongoro, Longido, Karatu, Monduli, Arumeru",5.5,6.5,Moderately Acidic,"Mahindi, Maharage, Ngano, Shayiri, Mtama, Uwele, Kahawa, Chai, Migomba, Viazi, Alizeti, Parachichi"
+Arusha,"Ngorongoro, Longido, Karatu, Monduli, Arumeru",6.6,7.3,Neutral,"Mahindi, Maharage, Ngano, Shayiri, Mtama, Uwele, Kahawa, Chai, Migomba, Viazi, Alizeti, Parachichi"
+Arusha,"Ngorongoro, Longido, Karatu, Monduli, Arumeru",7.4,8.4,Slightly Alkaline,"Mahindi, Maharage, Ngano, Shayiri, Mtama, Uwele, Kahawa, Chai, Migomba, Viazi, Alizeti, Mboga mboga"
+Arusha,"Ngorongoro, Longido, Monduli, Arumeru",8.5,14.0,Highly Alkaline,"Mahindi, Maharage, Mtama, Uwele, Viazi, Alizeti, Mboga mboga"
+
+Dodoma,"Mpwapwa,Kongwa,Bahi,Chamwino,Chemba,Kondoa",0.0,5.4,Highly Acidic,"Mahindi,Zabibu,Uwele,Alizeti,Muhogo,Viazi Vitamu,Mtama,Karanga,Muhogo,Korosho,Ufuta"
+Dodoma,"Chemba,Kondoa,Mpwapwa,Kongwa,Bahi,Chamwino",5.5,6.5,Moderately Acidic,"Mahindi,Zabibu,Maharage,Uwele,Ulezi,Alizeti,Muhogo,Viazi Vitamu,Mtama,Karanga,Korosho,Ufuta"
+Dodoma,"Chamwino,Bahi,Kongwa,Kondoa,Mpwapwa,Chemba",6.6,7.3,Neutral,"Mahindi,Mpunga,Maharage,Uwele,Ulezi,Alizeti,Muhogo,Viazi,Mtama,Karanga,Korosho,Ufuta"
+Dodoma,"Kondoa,Bahi,Chamwino",7.4,8.4,Slightly Alkaline,"Mahindi,Mpunga,Maharage,Uwele,Ulezi,Alizeti,Viazi"
+
+Geita,"Bukombe,Chato,Geita,Nyang`hwale",0.0,5.4,Highly Acidic,"Pamba, Muhogo, Viazi Vitamu,Mpunga,Mahindi,Mtama,Mananasi,Karanga,Dengu"
+Geita,"Bukombe,Mbogwe,Chato,Geita,Nyang`hwale",5.5,6.5,Moderately Acidic,"Pamba, Muhogo, Viazi Vitamu,Mpunga,Mahindi,Mtama,Mananasi,Karanga,Kahawa,Dengu"
+Geita,"Mbogwe,Nyang`hwale",6.6,7.3,Neutral,"Pamba, Muhogo, Viazi Vitamu,Mpunga,Mahindi,Mtama,Mananasi,Karanga,Kahawa,Dengu"
+
+Iringa,"Mufindi,Kilolo,Iringa",0.0,5.4,Highly Acidic,"Mahindi,Chai,Maharage,Alizeti,Muhogo,Viazi,Tumbaku"
+Iringa,"Iringa DC,kilolo,Mufindi",5.5,6.5,Moderately Acidic,"Mahindi,Maharage,Pareto,Njegere,Viazi,Tumbaku"
+Iringa,"Iringa DC,Kilolo",6.6,7.3,Neutral,"Mahindi,Mpunga,Maharage,Njegere,Mbogamboga,Migomba,Alizeti,Viazi"
+Iringa,"Iringa DC",7.4,8.4,Slightly Alkaline,"Mahindi,Mpunga,Maharage,Mbogamboga,Alizeti,Viazi"
+
+Kagera,"Misenyi,Bukoba Rural,Muleba,Biharamulo,Ngara,Karagwe,Kyerwa",0.0,5.4,Highly Acidic,"Mahindi,Muhogo,Mtama,Maharage,Migomba,Kahawa,Chai,Miwa,Pamba,Parachichi,Vanila,Mbogamboga"
+Kagera,"Bukoba Rural,Muleba,Biharamulo,Ngara,Karagwe,Kyerwa,Misenyi",5.5,6.5,Moderately Acidic,"Mahindi,Muhogo,Mtama,Maharage,Migomba,Kahawa,Chai,Miwa,Pamba,Parachichi,Vanila,Mbogamboga"
+Kagera,"Misenyi",6.6,7.3,Neutral,"Mahindi,Maharage,Migomba,Kahawa,Miwa,Mbogamboga"
+
+Katavi,"Tanaganyika,Nsimbo,Mlele",0.0,5.4,Highly Acidic,"Muhogo, Viazi Vitamu,Mahindi,Ufuta,Alizeti"
+Katavi,"Mpimbwe,Mpanda,Nsimbo",5.5,6.5,Moderately Acidic,"Mahindi,Mpunga,Maharage,Ufuta,Muhogo,Karanga,Minazi,Ulezi,Alizeti,Viazi Vitamu"
+Katavi,"Mpanda,Mpimbwe",6.6,7.3,Neutral,"Mahindi,Mpunga,Maharage,Ufuta,Muhogo,Karanga,Minazi,Ulezi,Alizeti,Viazi Vitamu"
+
+Kilimanjaro,"Same,Mwanga",0.0,5.4,Highly Acidic,"Mahindi, Mtama, Uwele,Viazi Vitamu,Mkonge,Muhogo,Tangawizi, Parachichi"
+Kilimanjaro,"Same,Mwanga,Moshi Rural,Rombo,Hai,Siha",5.5,6.5,Moderately Acidic,"Mahindi,Maharage, Mtama, Uwele,Kahawa,Chai,Migomba,Viazi ,Alizeti,Mkonge,Muhogo,Tangawizi,Parachichi"
+Kilimanjaro,"Same,Mwanga,Moshi Rural,Rombo,Hai,Siha",6.6,7.3,Neutral,"Mahindi,Maharage, Mtama, Uwele,Kahawa,Chai,Migomba,Viazi ,Alizeti,Mkonge,Muhogo,Tangawizi,Parachichi"
+Kilimanjaro,"Same,Mwanga,Moshi Rural,Rombo,Hai,Siha",7.4,8.4,Slightly Alkaline,"Mahindi,Mpunga ,Maharage, Mtama, Uwele,Migomba,Viazi ,Alizeti,Mbogamboga"
+Kilimanjaro,"Same,Moshi Rural",8.5,14.0,Highly Alkaline,"Mahindi,Mpunga ,Maharage, Mtama, Uwele,Viazi ,Alizeti,Mbogamboga"
+
+Manyara,"Kiteto,Simanjiro,Mbulu,Babati,Hanang",0.0,5.4,Highly Acidic,"Mahindi, Maharage, Mtama, Ngano, Shayiri,Ulezi,Viazi,Alizeti"
+Manyara,"Kiteto,Simanjiro,Mbulu,Babati,Hanang",5.5,6.5,Moderately Acidic,"Mahindi, Maharage,Kunde, Ngano, Shayiri, Mtama,Ulezi,Kahawa,Migomba,Maboga,Viazi,Alizeti,Mbaazi,Vitunguu"
+Manyara,"Simanjiro,Mbulu,Babati,Hanang,Kiteto",6.6,7.3,Neutral,"Mahindi,Mpunga,Maharage,Kunde,Ngano,Maboga,Shayiri,Ulezi,kahawa,Migomba,Viazi,Alizeti,Mbaazi,Vitunguu"
+Manyara,"Simanjiro,Mbulu,Babati,Kiteto",7.4,8.4,Slightly Alkaline,"Mahindi, Mpunga ,Maharage, Ngano, Shayiri, Migomba, Viazi, Alizeti, Mbogamboga,Vitunguu"
+Manyara,"Simanjiro,Babati",8.5,14.0,Highly Alkaline,"Mahindi, Mpunga ,Maharage, Mtama,Uwele, Viazi, Alizeti, Mbogamboga"
+
+Mara,"Tarime,Rorya,Musoma Rural,Bunda,Serengeti",0.0,5.4,Highly Acidic,"Mahindi,Viazi vitamu,Tumbaku,Muhogo,Mtama,Maharage,Miwa,Machungwa,Dengu,Kunde,Choroko,Karanga,Njegere,Alizeti,Ufuta,Vitunguu"
+Mara,"Serengeti,Bunda,Musoma Rural,Tarime,Rorya",5.5,6.5,Moderately Acidic,"Mahindi,Viazi vitamu ,Muhogo,Mtama,Maharage,kahawa,Migomba,Miwa,Machungwa,Dengu,Kunde,Choroko,Karanga,Njegere Alizeti,Ufuta,Vitunguu,Mbogamboga,Tumbaku"
+Mara,"Serengeti,Bunda,Musoma Rural,Tarime,Rorya",6.6,7.3,Neutral,"Mahindi,Viazi vitamu ,Muhogo,Mtama,Maharage,kahawa,Migomba,Miwa,Machungwa,Dengu,Kunde,Choroko,Karanga,Njegere Alizeti,Ufuta,Vitunguu,Mbogamboga"
+Mara,"Serengeti",7.4,8.4,Slightly Alkaline,"Pamba,Viazi vitamu,Mahindi,Mtama,Alizeti,Vitunguu,Mbogamboga"
+
+Mbeya,"Chunya,Mbarali,Rungwe,Mbeya",0.0,5.4,Highly Acidic,"Mahindi, Maharage,Uwele,Ulezi,Alizeti,Muhogo,Viazi,Mtama,Karanga,Tumbaku"
+Mbeya,"Chunya,Mbarali,Rungwe,Mbeya",5.5,6.5,Moderately Acidic,"Mahindi, Maharage,Mpunga,Migomba,Kahawa,Chai,Hiliki,Uwele,Ngano,Alizeti,Muhogo,Viazi,Mtama,Karanga,Tumbaku,Pamba,Korosho,Matikiti,Kakao"
+Mbeya,"Mbarali,Chunya,Mbeya,Kyela",6.6,7.3,Neutral,"Mahindi,Mpunga,Maharage,Migomba,Kahawa,Chai,Hiliki,Uwele,Ngano,Alizeti,Muhogo,Viazi,Mtama,Karanga,Tumbaku,Pamba,Korosho,Matikiti,Kakao"
+Mbeya,"Mbarali,Chunya,Mbeya",7.4,8.4,Slightly Alkaline,"Mahindi, Mpunga ,Maharage, Uwele,Alizeti,Viazi,Mtama,Karanga,Pamba"
+Mbeya,"Mbeya",8.5,14.0,Highly Alkaline,"Mahindi, Mpunga ,Maharage,Ngano, Viazi,Migomba"
+
+Morogoro,"Kilosa,Mvomero,Morogoro rural,Ulanga,Kilombero",0.0,5.4,Highly Acidic,"Mahindi,Maharage,Kahawa,Miwa,Viungo,Uwele,Alizeti,Muhogo,Viazi,Mkonge"
+Morogoro,"Kilosa,Mvomero,Morogoro rural,Ulanga,Kilombero",5.5,6.5,Moderately Acidic,"Mahindi,Mpunga,Maharage,Njegere,Mbogamboga,Miwa,Migomba,Magimbi,Kahawa,Viungo,Alizeti,Muhogo,Viazi,Mkonge"
+Morogoro,"Kilosa,Mvomero,Morogoro rural,Ulanga,Kilombero",6.6,7.3,Neutral,"Mahindi,Mpunga,Maharage,Miwa,Migomba,Kahawa,Viungo,Miembe,Alizeti,Viazi"
+Morogoro,"Morogoro Rural",7.4,8.4,Slightly Alkaline,"Mahindi,Mpunga,Maharage,Migomba,Alizeti"
+
+Mwanza,"Ukerewe,Sengerema,Magu",0.0,5.4,Highly Acidic,"Pamba,Muhogo,Viazi vitamu,Mpunga,Mahindi,Mtama,Mananasi,Karanga,Migomba,Chikichi,Kahawa,Ufuta Alizeti,Vanila,Njugu,Mbogamboga"
+Mwanza,"Kwimba,Misungwi,Magu,Sengerema,Ukerewe",5.5,6.5,Moderately Acidic,"Pamba,Muhogo,Viazi vitamu,Mpunga,Mahindi,Mtama,Mananasi,Karanga,Migomba,Chikichi,Kahawa,Ufuta Alizeti,Vanila,Njugu,Mbogamboga"
+Mwanza,"Kwimba,Misungwi,Magu,Sengerema",6.6,7.3,Neutral,"Pamba,Muhogo,Viazi vitamu,Mpunga,Mahindi,Mtama,Mananasi,Karanga, Alizeti,Maharage,Kunde,Mbogamboga"
+Mwanza,"Misungwi,Magu",7.4,8.4,Slightly Alkaline,"Pamba,Viazi vitamu,Mpunga,Mahindi,Mtama,Mananasi,Karanga,Alizeti,Maharage,Kunde,Mbogamboga"
+
+Njombe,"Njombe,Ludewa,Makete,Wanging`ombe",0.0,5.4,Highly Acidic,"Mahindi,Maharage,Chai,Parachichi,Kahawa,Ngano,Alizeti,Viazi"
+Njombe,"Njombe,Ludewa,Makete,Wanging`ombe",5.5,6.5,Moderately Acidic,"Mahindi,Mpunga,Maharage,Chai,Parachichi,Kahawa,Ngano,Alizeti,Viazi,Migomba"
+Njombe,"Makete,Wanging`ombe",6.6,7.3,Neutral,"Mahindi,Mpunga,Maharage,Kahawa,Ngano,Alizeti,Viazi,Migomba,Njegere"
+
+Rukwa,"Nkasi,Kalambo,Sumbawanga Rural,Sumbawanga",0.0,5.4,Highly Acidic,"Mahindi,Maharage,Uwele,Alizeti,Muhogo"
+Rukwa,"Nkasi,Kalambo,Sumbawanga Rural,Sumbawanga",5.5,6.5,Moderately Acidic,"Mahindi,Mpunga,Maharage,Uwele,Ngano,Alizeti,Muhogo"
+Rukwa,"Sumbawanga Rural",6.6,7.3,Neutral,"Mahindi,Mpunga,Maharage,Uwele,Alizeti"
+Rukwa,"Sumbawanga Rural",7.4,8.4,Slightly Alkaline,"Mahindi,Mpunga,Maharage,Uwele,Alizeti"
+
+Shinyanga,"Kahama",0.0,5.4,Highly Acidic,"Mahindi,Maharage,Uwele,Alizeti,Muhogo,Viazi vitamu,Mtama,Karanga,Njugu,Tumbaku"
+Shinyanga,"Kahama ,Shinyanga Rural,Kishapu",5.5,6.5,Moderately Acidic,"Mahindi,Maharage,Uwele,Ngano,Alizeti,Muhogo,Viazi vitamu,Mtama,Karanga,Njugu,Tumbaku,Pamba,Choroko,Dengu,Kunde"
+Shinyanga,"Kahama ,Shinyanga Rural,Kishapu",6.6,7.3,Neutral,"Mahindi,Mpunga,Maharage,Uwele,Alizeti,Muhogo,Viazi vitamu,Mtama,Karanga,Pamba,Choroko,Dengu,Kunde"
+Shinyanga,"Kishapu",7.4,8.4,Slightly Alkaline,"Mahindi,Mpunga,Maharage,Uwele,Alizeti,Viazi vitamu,Mtama,Pamba,Choroko,Dengu,Kunde"
+
+Simiyu,"Bariadi,Maswa,Meatu,Itilima,Busega",5.5,6.5,Moderately Acidic,"Pamba,Muhogo,Viazi vitamu,Mpunga,Mahindi,Mtama,Uwele,Karanga,Alizeti"
+Simiyu,"Bariadi,Maswa,Meatu,Itilima,Busega",6.6,7.3,Neutral,"Pamba,Muhogo,Viazi vitamu,Mpunga,Mahindi,Mtama,Uwele,Karanga,Alizeti"
+Simiyu,"Meatu",7.4,8.4,Slightly Alkaline,"Pamba,Viazi vitamu,Mpunga,Mahindi,Mtama,Uwele,Alizeti"
+Simiyu,"Meatu",8.5,14.0,Highly Alkaline,"Pamba,Viazi vitamu,Mpunga,Mahindi,Mtama,Uwele,Alizeti"
+
+Singida,"Manyoni,Itigi,Ikungi,Singida Rural,Iramba,Mkalama",0.0,5.4,Highly Acidic,"Mahindi,Uwele,Alizeti,Muhogo,Viazi vitamu,Mtama,Karanga,Tumbaku,Korosho"
+Singida,"Manyoni,Itigi,Ikungi,Singida Rural,Iramba,Mkalama",5.5,6.5,Moderately Acidic,"Mahindi, Maharage,Uwele,Alizeti,Vitunguu,Maboga,Muhogo,Viazi vitamu,Mtama,Karanga,Njegere,Tumbaku,Ngano,Korosho"
+Singida,"Iramba,Mkalama,Ikungi,Singida Rural,Manyoni,Itigi",6.6,7.3,Neutral,"Mahindi,Mpunga,Maharage,Uwele,Alizeti,Vitunguu,Maboga,Muhogo,Viazi vitamu,Mtama,Karanga,Njegere,Tumbaku,Ngano,Korosho,Pamba"
+Singida,"Iramba,Mkalama,Ikungi,Singida Rural,Manyoni",7.4,8.4,Slightly Alkaline,"Mahindi, Mpunga ,Maharage, Uwele,Alizeti,Viazi vitamu,Mtama,Vitunguu,Maboga,Njegere,Ngano,Pamba"
+Singida,"Mkalama",8.5,14.0,Highly Alkaline,"Mahindi, Mpunga ,Maharage,Vitunguu,Pamba,Alizeti,Maboga"
+
+Songwe,"Ileje",0.0,5.4,Highly Acidic,"Mahindi,Maharage,Uwele,Alizeti,Muhogo,Viazi"
+Songwe,"Momba,Ileje,Mbozi",5.5,6.5,Moderately Acidic,"Mahindi,Mpunga,Maharage,Migomba,Kahawa,Uwele,Ngano,Alizeti,Muhogo,Viazi"
+Songwe,"Momba,Ileje,Mbozi",6.6,7.3,Neutral,"Mahindi,Mpunga,Maharage,Migomba,Kahawa,Chai,Hiliki,Uwele,Ngano,Alizeti,Muhogo,Viazi"

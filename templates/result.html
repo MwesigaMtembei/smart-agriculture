@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Forecast</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .forecast-card {
+            border-radius: 15px;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .forecast-title {
+            font-weight: 700;
+            color: #28a745;
+        }
+        .icon-circle {
+            width: 50px;
+            height: 50px;
+            background: #28a745;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 24px;
+            margin-right: 15px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h1 class="forecast-title">
+                <i class="fas fa-leaf"></i> Forecast for {{ crop }}
+            </h1>
+            <p class="text-muted">Get the best timing and region insights!</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="forecast-card">
+
+                    {% if forecast.regions %}
+                        <div class="mb-4">
+                            <h3 class="text-primary">
+                                <i class="fas fa-map-marker-alt"></i> Regions
+                            </h3>
+                            <ul class="list-group list-group-flush">
+                                {% for region in forecast.regions %}
+                                    <li class="list-group-item">
+                                        <div class="d-flex align-items-center">
+                                            <div class="icon-circle bg-success">
+                                                <i class="fas fa-location-arrow"></i>
+                                            </div>
+                                            <span class="fs-5">{{ region }}</span>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div class="mb-3">
+                            <h4 class="text-warning">
+                                <i class="fas fa-calendar-check"></i> Harvest Time
+                            </h4>
+                            <p class="fs-5">{{ forecast.harvest }}</p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-info">
+                                <i class="fas fa-shopping-basket"></i> Best Sell Time
+                            </h4>
+                            <p class="fs-5">{{ forecast.sell }}</p>
+                        </div>
+
+                    {% else %}
+                        <div class="mb-4">
+                            <h4 class="text-success">
+                                <i class="fas fa-calendar-check"></i> Good Harvest Time
+                            </h4>
+                            <p class="fs-5">{{ forecast.good_harvest }}</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h4 class="text-danger">
+                                <i class="fas fa-calendar-times"></i> Bad Harvest Time
+                            </h4>
+                            <p class="fs-5">{{ forecast.bad_harvest }}</p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-primary">
+                                <i class="fas fa-seedling"></i> Good Planting Time
+                            </h4>
+                            <p class="fs-5">{{ forecast.good_planting }}</p>
+                        </div>
+                    {% endif %}
+
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="/predict" class="btn btn-success btn-lg">
+                        <i class="fas fa-arrow-left"></i> Predict Another Crop
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

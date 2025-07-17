@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - AgriCulture Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Marcellus&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+</head>
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="{{ url_for('index') }}" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        
+        <h1 class="sitename">Smart AgriCulture</h1>  
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About Us</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          <li><a href="{{ url_for('login') }}">Login</a></li>
+          <li><a href="{{ url_for('signup') }}">Signup</a></li>    
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero d-flex align-items-center section dark-background" style="background: url('{{ url_for('static', filename='assets/img/heros1.webp') }}') center center no-repeat; background-size: cover; height: 100vh;">
+
+  <div class="container text-center position-relative" data-aos="fade-in">
+    <h1 class="text-white">Welcome to Smart Agriculture</h1>
+    <p class="text-white fs-5">Empowering Tanzanian farmers with AI-driven market insights and crop trend predictions.</p>
+    <a href="{{ url_for('signup') }}" class="btn btn-success mt-3 px-4 py-2">Get Started</a>
+  
+</div>
+    </section>
+    
+<!-- /Hero Section -->
+
+<!-- About Smart Agriculture Section -->
+<section id="about-short" class="section py-5">
+  <div class="container text-center">
+    <h3 class="mb-4">What is Smart Agriculture?</h3>
+    <p class="lead">
+      Smart Agriculture is a modern, AI-supported platform built for Tanzanian farmers and businesses. 
+      It helps users make informed decisions by analyzing market trends, crop prices, and recommending the best planting strategies.
+    </p>
+  </div>
+</section>
+
+<!-- Key Features Section -->
+<section id="features" class="section bg-light py-5">
+  <div class="container text-center">
+    <h3 class="mb-5">Key Features</h3>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="p-4 shadow rounded bg-white">
+          <i class="bi bi-graph-up-arrow fs-2 text-success"></i>
+          <h5 class="mt-3">AI Market Trends</h5>
+          <p>View real-time price trends of key Tanzanian crops like cashew, coffee, and sesame.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="p-4 shadow rounded bg-white">
+          <i class="bi bi-lightbulb fs-2 text-warning"></i>
+          <h5 class="mt-3">Smart Crop Suggestions</h5>
+          <p>Get personalized planting recommendations based on region, season, and market data.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="p-4 shadow rounded bg-white">
+          <i class="bi bi-bar-chart-line fs-2 text-primary"></i>
+          <h5 class="mt-3">Predictive Analytics</h5>
+          <p>Use AI to forecast the best times to plant, harvest, and sell for maximum profit.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="p-4 shadow rounded bg-white">
+          <i class="bi bi-geo-alt fs-2 text-danger"></i>
+          <h5 class="mt-3">Location-Based Insights</h5>
+          <p>Access insights tailored to your exact location to improve productivity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section id="why-us" class="section py-5">
+  <div class="container text-center">
+    <h3 class="mb-4">Why Choose Our Platform?</h3>
+    <p class="lead mb-4">
+      We’re empowering local farmers with technology to help them grow smarter and sell better.
+    </p>
+    <ul class="list-unstyled d-flex justify-content-center flex-wrap gap-4">
+      <li><i class="bi bi-check-circle-fill text-success me-2"></i> Easy to Use</li>
+      <li><i class="bi bi-check-circle-fill text-success me-2"></i> Built for Tanzania</li>
+      <li><i class="bi bi-check-circle-fill text-success me-2"></i> Real Market Data</li>
+      <li><i class="bi bi-check-circle-fill text-success me-2"></i> Secure Login System</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Call To Action -->
+<section id="cta" class="section bg-success text-white py-5 text-center">
+  <div class="container">
+    <h4 class="mb-3">Ready to grow your agriculture business smarter?</h4>
+    <a href="{{ url_for('signup') }}" class="btn btn-light btn-lg">Create Your Free Account</a>
+  </div>
+</section>
+
+<!-- Services 2 Section -->
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="service-cards">
+    <div class="service-card">
+      <img src="{{ url_for('static', filename='assets/img/crop-price-icon.png') }}" alt="Crop Price Prediction">
+      <h3>Crop Price Prediction</h3>
+      <p>Our AI-driven system predicts the prices of crops like cashew, coffee, and sesame, allowing farmers to make informed decisions.</p>
+    </div>
+    <div class="service-card">
+      <img src="{{ url_for('static', filename='assets/img/market-trend-icon.png') }}" alt="Market Trend Analysis">
+      <h3>Market Trends Analysis</h3>
+      <p>Stay ahead with real-time data on market trends and crop demands, ensuring you know the best time to sell.</p>
+    </div>
+    <div class="service-card">
+      <img src="{{ url_for('static', filename='assets/img/recommendations-icon.png') }}" alt="Personalized Recommendations">
+      <h3>Personalized Recommendations</h3>
+      <p>Get tailored advice based on market trends, crop health, and predicted prices to maximize your profits.</p>
+    </div>
+    <div class="service-card">
+      <img src="{{ url_for('static', filename='assets/img/dashboard-icon.png') }}" alt="Dashboard for Farmers & Businesses">
+      <h3>Dashboard for Farmers</h3>
+      <p>Access a comprehensive dashboard to monitor your crops, predict trends, and track sales for better decision-making.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-12 testimonials section" id="testimonials">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>TESTIMONIALS</h2>
+  </div>
+  <div class="testimonial-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4 mb-md-4">
+          <div class="testimonial">
+            <img src="{{ url_for('static', filename='assets/img/testimonials/testimonial-1.jpeg') }}" alt="Testimonial author">
+            <blockquote>
+              <p>Before using this system, I didn’t know when to sell my cashews. Now, with the AI predictions, I wait for the right time — and I’ve made 30% more profit!”</p>
+            </blockquote>
+            <p class="client-name">— Ahmed K., Cashew Farmer, Mtwara</p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4 mb-md-4">
+          <div class="testimonial">
+            <img src="{{ url_for('static', filename='assets/img/testimonials/testimonial-2.jpg') }}" alt="Testimonial author">
+            <blockquote>
+              <p>“I used to guess crop prices from the market. Now I have trend data and predictions right on my dashboard. It has helped me plan my harvest better.”</p>
+            </blockquote>
+            <p class="client-name">— Maria S., Coffee Grower, Mbeya</p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4 mb-md-4">
+          <div class="testimonial">
+            <img src="{{ url_for('static', filename='assets/img/testimonials/testimonial-3.jpg') }}" alt="Testimonial author">
+            <blockquote>
+              <p>“We run a sesame export business and this system gives us real-time data that saves money and helps us buy from farmers at fair prices.”</p>
+            </blockquote>
+            <p class="client-name">— TanzAgro Ltd., Dar es Salaam</p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4 mb-md-4">
+          <div class="testimonial">
+            <img src="{{ url_for('static', filename='assets/img/testimonials/testimonial-4.jpeg') }}" alt="Testimonial author">
+            <blockquote>
+              <p>“The recommendations are simple and helpful. I check the app before I make any decisions now.”</p>
+            </blockquote>
+            <p class="client-name">— Paul M., Smallholder Farmer, Dodoma</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Testimonials Section -->
+
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="copyright text-center">
+      <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <div>
+            © Copyright <strong><span>Smart Agriculture</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
+            Designed by <a href="">Wizard</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+   <!-- Vendor JS Files -->
+   <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+   <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+   <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+   <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+   <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+ 
+   <!-- Main JS File -->
+   <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+    
+
+</body>
+
+</html>

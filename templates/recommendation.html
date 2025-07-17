@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Crop Suggestion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+  <div class="mb-3">
+    <a href="/dashboard" class="btn btn-outline-secondary">
+      ⬅ Back to Dashboard
+    </a>
+  </div>
+  
+
+<div class="container py-5">
+  <div class="text-center mb-4">
+    <h2 class="text-success">🌱 Crop Recommendation</h2>
+    <p class="text-muted">Enter your region and district to get personalized crop advice</p>
+  </div>
+<!---Form selection-->
+  <form method="POST" action="/recommendation" class="card p-4 shadow mb-4">
+    <div class="mb-3">
+      <label for="region" class="form-label">Select Region</label>
+      <select name="region" class="form-select" required>
+        <option value="">-- Choose Region --</option>
+        <option value="Dodoma">Dodoma</option>
+        <option value="Arusha">Arusha</option>
+        <option value="Geita">Geita</option>
+        <option value="Mbeya">Mbeya</option>
+        <option value="Mwanza">Mwanza</option>
+        <option value="Kilimanjaro">Kilimanjaro</option>
+        <option value="Iringa">Iringa</option>
+        <option value="Kagera">Kagera</option>
+        <option value="Katavi">Katavi</option>
+        <option value="Manyara">Manyara</option>
+        <option value="Mara">Mara</option>
+        <option value="Morogoro">Morogoro</option>
+        <option value="Njombe">Njombe</option>
+        <option value="Rukwa">Rukwa</option>
+        <option value="Shinyanga">Shinyanga</option>
+        <option value="Simiyu">Simiyu</option>
+        <option value="Songwe">Songwe</option>
+        
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="district" class="form-label">Enter District</label>
+      <input type="text" class="form-control" name="district" placeholder="e.g., Mbogwe" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="ph" class="form-label">Enter Soil pH Value</label>
+      <input type="number" step="0.1" name="ph" class="form-control" placeholder="e.g., 6.5" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Get Recommendation</button>
+  </form>
+<!----Result Display-->
+  {% if result %}
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card border-primary shadow">
+          <div class="card-body">
+            <h5 class="card-title text-primary">🌡 Current Temperature</h5>
+            <p class="card-text fs-5">{{ result.temperature }} °C</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card border-info shadow">
+          <div class="card-body">
+            <h5 class="card-title text-info">🕐 Inferred Season</h5>
+            <p class="card-text fs-5">{{ result.season }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card border-success shadow mb-4">
+      <div class="card-body">
+        <h4 class="card-title text-success">✅ Recommended Crops</h4>
+        <p><strong>Region:</strong> {{ result.region }}</p>
+        <p><strong>District:</strong> {{ result.district }}</p>
+        <p><strong>Soil pH:</strong> {{ result.ph }}</p>
+        <p><strong>Acidity Level:</strong> {{ result.acidity }}</p>
+        <ul class="list-group">
+          {% for crop in result.recommended_crops %}
+            <li class="list-group-item">{{ crop }}</li>
+          {% endfor %}
+        </ul>
+        <div class="card border-warning shadow mt-4">
+          <div class="card-body">
+            <h5 class="card-title text-warning">🤖 ML Suggested Best Crop</h5>
+            <p class="fs-5"><strong>{{ result.ml_prediction }}</strong></p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  {% elif error %}
+    <div class="alert alert-warning text-center">{{ error }}</div>
+  {% endif %}
+</div>
+
+</body>
+</html>

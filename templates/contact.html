@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Contact - Smart Agriculture</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Marcellus&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+</head>
+
+<body class="contact-page">
+
+  <!-- Header -->
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid container-xl d-flex justify-content-between align-items-center">
+      <a href="/" class="logo d-flex align-items-center">
+        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="SmartAgri Logo">
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact" class="active">Contact</a></li>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/signup">Signup</a></li>    
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url('{{ url_for('static', filename='assets/img/page-title-bg.webp') }}');">
+      <div class="container position-relative">
+        <h1>Contact</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li class="current">Contact</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <div class="mb-5">
+        <!-- CTA Section to replace the Map -->
+<section class="section bg-success text-white text-center">
+  <div class="container" data-aos="fade-up">
+    <h2 class="mb-3">We'd Love to Hear From You!</h2>
+    <p class="mb-4">Whether you're a farmer, researcher, or partner, your feedback helps us grow smarter agriculture together.</p>
+    <a href="{{ url_for('signup') }}" class="btn btn-light btn-lg">Join the Platform</a>
+  </div>
+</section>
+
+      </div>
+
+      <div class="container" data-aos="fade">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <div class="info text-center">
+              <h3>Get in touch</h3>
+              <p>If you have questions, suggestions, or partnership inquiries, feel free to reach out.</p>
+
+              <div class="info-item d-flex align-items-center justify-content-center mb-3">
+                <i class="bi bi-geo-alt me-2"></i>
+                <div>
+                  <h4>Location:</h4>
+                  <p>Dodoma, Tanzania</p>
+                </div>
+              </div>
+
+              <div class="info-item d-flex align-items-center justify-content-center mb-3">
+                <i class="bi bi-envelope me-2"></i>
+                <div>
+                  <h4>Email:</h4>
+                  <p>support@smartagri.co.tz</p>
+                </div>
+              </div>
+
+              <div class="info-item d-flex align-items-center justify-content-center">
+                <i class="bi bi-phone me-2"></i>
+                <div>
+                  <h4>Call:</h4>
+                  <p>+255 712 345 678</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer dark-background">
+    <div class="copyright text-center">
+      <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          © Copyright <strong><span>Smart Agriculture</span></strong>. All Rights Reserved
+          <div class="credits">
+            Designed by <a href="https://bootstrapmade.com/">Wizard</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- JS Files -->
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+</body>
+</html>

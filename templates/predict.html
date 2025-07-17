@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predictive Analytics - Dashboard</title>
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+</head>
+<body>
+
+<!-- ======= Header ======= -->
+<header class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="{{ url_for('dashboard') }}" class="logo d-flex align-items-center">
+      <span class="d-none d-lg-block">Dashboard</span> <!-- Changed text here -->
+    </a>
+  </div>
+
+  <!-- Removed welcome text -->
+  <!-- 
+  <nav class="header-nav ms-auto">
+    <ul class="d-flex align-items-center">
+      <li class="nav-item">
+        <span class="nav-link">Welcome, <strong>{{ username }}</strong></span>
+      </li>
+    </ul>
+  </nav>
+  -->
+</header>
+
+<!-- ======= Sidebar ======= -->
+<aside class="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="{{ url_for('dashboard') }}">
+        <i class="bi bi-grid"></i><span>Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ url_for('predict') }}">
+        <i class="bi bi-bar-chart-line"></i><span>Predictive Analytics</span>
+      </a>
+    </li>
+    
+    </li>
+  </ul>
+</aside>
+
+<!-- ======= Main Content ======= -->
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1 class="text-warning">Predictive Analytics</h1>
+    <p>Use AI to forecast the best time to plant, harvest, and sell your crops.</p>
+  </div>
+
+  <section class="section dashboard">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card shadow p-4">
+          <h5 class="card-title">Crop Forecast Form</h5>
+          <form action="/predict" method="post">
+            <div class="mb-3">
+              <label for="crop" class="form-label">Crop Type</label>
+              <select name="crop" id="crop" class="form-select" required>
+                <option value="">Select Crop</option>
+                
+                {% for crop in crops %}
+                  <option value="{{ crop }}">{{ crop.title() }}</option>
+                {% endfor %}
+    
+              </select>
+            </div>
+            
+            <button type="submit" class="btn btn-warning">Start Forecasting</button>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ======= Scripts ======= -->
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

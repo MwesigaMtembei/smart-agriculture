@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>About - AgriCulture Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: AgriCulture
+  * Template URL: https://bootstrapmade.com/agriculture-bootstrap-website-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="about-page">
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="AgriCulture">
+        <!-- <h1 class="sitename">AgriCulture</h1>  -->
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About Us</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          <li><a href="{{ url_for('login') }}">Login</a></li>
+          <li><a href="{{ url_for('signup') }}">Signup</a></li>    
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+  <!-- Page Title -->
+  <div class="page-title dark-background" data-aos="fade" style="background-image: url({{ url_for('static', filename='assets/img/page-title-bg.webp') }});">
+  <div class="container position-relative">
+    <h1>About Us</h1>
+    <p>Empowering Tanzanian farmers and agribusinesses with AI-powered market insights and crop price predictions.</p>
+    <nav class="breadcrumbs">
+      <ol>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li class="current">About Us</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!-- End Page Title -->
+
+<!-- About 3 Section -->
+<section id="about-3" class="about-3 section">
+  <div class="container">
+    <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-8 text-center">
+        <h2 class="content-title mb-4">Who We Are</h2>
+        <p class="mb-4">
+          We are a team of innovators transforming agriculture in Tanzania with AI-powered tools. Our platform helps farmers and businesses make informed decisions using real-time crop price predictions and market trend analysis.
+        </p>
+        <ul class="list-unstyled list-check d-inline-block text-start">
+          <li>AI-driven crop price predictions</li>
+          <li>Real-time market trend insights</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- /About 3 Section -->
+
+<!-- Vision & Mission Section -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="row gy-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <h3 class="content-title">Our Vision</h3>
+        <p>To create a sustainable, data-driven agricultural economy in Tanzania where farmers and agribusinesses thrive with technology at their fingertips.</p>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <h3 class="content-title">Our Mission</h3>
+        <ul class="list-unstyled list-check">
+          <li>Empower smallholder farmers with easy-to-use tools</li>
+          <li>Provide accurate, AI-powered market predictions</li>
+          <li>Ensure fair pricing and transparency for all stakeholders</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Vision & Mission Section -->
+
+<!-- Why It Matters Section -->
+<section class="section">
+  <div class="container" data-aos="fade-up">
+    <h2 class="text-center mb-4">Why It Matters</h2>
+    <p class="text-center mb-5">
+      Agriculture is the heart of Tanzania's economy — yet many farmers lack access to reliable market data. Our platform bridges this gap, offering AI-powered insights that help users sell smarter, grow better, and plan ahead.
+    </p>
+    <div class="row gy-4 text-center">
+      <div class="col-md-4">
+        <i class="bi bi-graph-up-arrow fs-2 mb-3"></i>
+        <h5>Boost Income</h5>
+        <p>Plan your selling time based on real data and maximize your earnings.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-lightbulb fs-2 mb-3"></i>
+        <h5>Make Informed Decisions</h5>
+        <p>Access accurate forecasts, dashboards, and AI recommendations tailored to your crops.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-globe fs-2 mb-3"></i>
+        <h5>Connect to Markets</h5>
+        <p>Get market trend insights that align your harvests with real-time demand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Why It Matters Section -->
+
+<!-- Core Values Section -->
+<section class="section bg-light">
+  <div class="container" data-aos="fade-up">
+    <h2 class="text-center mb-4">Our Core Values</h2>
+    <div class="row gy-4 text-center">
+      <div class="col-md-2 offset-md-1"><p>💡 Innovation</p></div>
+      <div class="col-md-2"><p>📱 Simplicity</p></div>
+      <div class="col-md-2"><p>👐 Inclusivity</p></div>
+      <div class="col-md-2"><p>💚 Sustainability</p></div>
+      <div class="col-md-2"><p>📣 Transparency</p></div>
+    </div>
+  </div>
+</section>
+<!-- /Core Values Section -->
+
+<!-- Team Section -->
+<section class="team-15 team section" id="team">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Team</h2>
+    <p>Meet the people behind the platform</p>
+  </div>
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <!-- Your existing team cards stay the same -->
+        <!-- You can customize names/roles/images later -->
+        <!-- Example: Farmer, Backend Dev, AI Engineer, etc. -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Team Section -->
+
+
+      <div class="content">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="person">
+                <figure>
+                  <img src="{{ url_for('static', filename='assets/img/team/') }}" alt="Image" class="img-fluid">
+                  <div class="social">
+                    <a href="#"><span class="bi bi-facebook"></span></a>
+                    <a href="#"><span class="bi bi-twitter-x"></span></a>
+                    <a href="#"><span class="bi bi-linkedin"></span></a>
+                  </div>
+                </figure>
+                <div class="person-contents">
+                  <h3>DAFROSA</h3>
+                  <span class="position">Farmer</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="person">
+                <figure>
+                  <img src="{{ url_for('static', filename='assets/img/team/') }}" alt="Image" class="img-fluid">
+                  <div class="social">
+                    <a href="#"><span class="bi bi-facebook"></span></a>
+                    <a href="#"><span class="bi bi-twitter-x"></span></a>
+                    <a href="#"><span class="bi bi-linkedin"></span></a>
+                  </div>
+                </figure>
+                <div class="person-contents">
+                  <h3>TEREZA</h3>
+                  <span class="position">Marketing</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="person">
+                <figure>
+                  <img src="{{ url_for('static', filename='assets/img/team/') }}" alt="Image" class="img-fluid">
+                  <div class="social">
+                    <a href="#"><span class="bi bi-facebook"></span></a>
+                    <a href="#"><span class="bi bi-twitter-x"></span></a>
+                    <a href="#"><span class="bi bi-linkedin"></span></a>
+                  </div>
+                </figure>
+                <div class="person-contents">
+                  <h3>IRENE</h3>
+                  <span class="position">Content</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="person">
+                <figure>
+                  <img src="{{ url_for('static', filename='assets/img/team/') }}" alt="Image" class="img-fluid">
+
+                </figure>
+                <div class="person-contents">
+                  <h3>MWESIGA</h3>
+                  <span class="position">Accountant</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Team Section -->
+
+    
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    
+
+    <div class="copyright text-center">
+      <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <div>
+            © Copyright <strong><span>Smart Agriculture</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
+            Designed by <a href="">Wizard</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+
+  <!-- Main JS File -->
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
+
+</html>
